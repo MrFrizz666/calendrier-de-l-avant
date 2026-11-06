@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F0F2F5">
+  <title>Calendrier de l'Avent pour ma Lisa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+    :root{--ink:#292632;--muted:#686775;--plum:#7A35FF;--rose:#b99af4;--cream:#F0F2F5;--line:#dfe2ea;--green:#64806b}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 5%,#e9e2ff 0,transparent 34%),radial-gradient(ellipse at 90% 90%,#e3e7f0 0,transparent 34%),var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh}
+    button{font:inherit;color:inherit}.shell{width:min(100% - 32px,1020px);margin:auto;padding:35px 0 52px}.masthead{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:42px}.brand{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--plum);font-weight:700}.tiny-heart{color:#7A35FF;font-size:20px}.intro{text-align:center;max-width:670px;margin:0 auto 36px}.eyebrow{color:var(--plum);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}.intro h1,.detail-title{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.04em}.intro h1{font-size:clamp(38px,7vw,66px);line-height:1.04;margin:14px 0}.intro p{color:var(--muted);font-size:15px;line-height:1.7;margin:0 auto}.name{color:var(--plum);font-style:italic}.progress-wrap{display:flex;align-items:center;gap:12px;max-width:440px;margin:25px auto 0;color:var(--muted);font-size:11px}.progress-track{height:4px;background:#dfe2ea;border-radius:6px;flex:1;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--plum);border-radius:6px;transition:width .4s}.calendar-card{background:rgba(255,255,255,.72);border:1px solid #dfe2ea;border-radius:25px;padding:clamp(18px,4vw,38px);box-shadow:0 15px 45px #624b3e12}.calendar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.calendar-top h2{font:500 22px 'Playfair Display',Georgia,serif;margin:0}.calendar-top span{font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}.door{position:relative;aspect-ratio:1/.92;border:1px solid #d8dbe5;border-radius:13px;background:linear-gradient(145deg,#ffffff,#e9e5f2);cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}.door:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 10px 20px #7A35FF20;border-color:#9b75ef}.door:focus-visible,.icon-btn:focus-visible,.back-btn:focus-visible{outline:3px solid #7A35FF;outline-offset:3px}.door::before{content:'';position:absolute;width:1px;height:70%;left:50%;top:15%;background:#dfe2ea}.door::after{content:'';position:absolute;height:1px;width:70%;left:15%;top:50%;background:#dfe2ea}.door:nth-child(3n)::before,.door:nth-child(7n)::after{display:none}.door-num{z-index:1;font:600 clamp(18px,3vw,27px) 'Playfair Display',Georgia,serif;color:#5d3a9e;background:#F0F2F5;padding:2px 7px;border-radius:20px}.door-mark{position:absolute;right:9px;top:6px;font-size:11px;color:#9670d9}.door.opened{background:linear-gradient(145deg,#e8e1fa,#d6c7f5);border-color:#b99af4}.door.opened .door-mark{color:var(--plum)}.calendar-bottom{text-align:center;margin-top:22px;color:#777582;font-size:12px}.calendar-bottom b{font-weight:500;color:var(--plum)}
+    .detail{display:none;max-width:760px;margin:0 auto}.detail.active{display:block;animation:appear .35s ease both}.calendar-view.hidden{display:none}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.back-btn{border:0;background:transparent;color:var(--plum);padding:8px 0;cursor:pointer;font-size:13px;font-weight:600}.back-btn span{font-size:17px;vertical-align:-1px;margin-right:7px}.detail-head{text-align:center;margin:18px 0 27px}.day-pill{display:inline-flex;border:1px solid #dfe2ea;border-radius:30px;padding:7px 13px;font-size:10px;color:var(--plum);letter-spacing:.14em;text-transform:uppercase;font-weight:700}.detail-title{font-size:clamp(32px,6vw,48px);margin:13px 0 5px}.detail-subtitle{font-size:13px;color:var(--muted);margin:0}.player{display:grid;grid-template-columns:160px 1fr;gap:22px;align-items:center;padding:18px;background:#fff;border:1px solid #dfe2ea;border-radius:20px;box-shadow:0 12px 38px #624b3e10}.cover{width:160px;aspect-ratio:1;border-radius:12px;background:linear-gradient(145deg,#c9b7f5,#8c58e9 58%,#49356f);display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 20px #49323b22}.cover-art{font-size:52px;filter:drop-shadow(0 5px 6px #48333a44)}.track-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#75628e;font-weight:700}.track-title{font-weight:700;font-size:19px;margin:6px 0 2px}.track-artist{font-size:13px;color:var(--muted)}.spotify-row{margin-top:13px;display:flex;align-items:center;gap:7px;color:#657b67;font-size:11px;font-weight:600}.spotify-dot{display:inline-grid;place-items:center;background:#1ed760;color:#122c1a;width:17px;height:17px;border-radius:50%;font-size:10px}.embed-wrap{margin-top:13px;max-width:410px}.embed-wrap iframe{width:100%;height:80px;border:0;border-radius:12px;display:block}.spotify-link{display:inline-block;color:#315f3c;font-size:12px;text-decoration:none;border-bottom:1px solid #b4c8b6;margin-top:9px}.spotify-link:hover{color:#1f3f27}.song-progress{margin-top:20px}.progress-line{height:3px;border-radius:4px;background:#dfe2ea;overflow:hidden}.progress-line::after{content:'';display:block;width:0;height:100%;background:#7A35FF}.time-row{display:flex;justify-content:space-between;color:#777582;font-size:10px;margin-top:6px}.card-note{margin-top:20px;padding:clamp(23px,5vw,38px);background:#ffffff;border:1px dashed #ad8de8;border-radius:18px;min-height:170px;box-shadow:inset 0 0 0 7px #F0F2F5}.note-label{font-size:10px;text-transform:uppercase;letter-spacing:.17em;color:#75628e;font-weight:700}.note-text{font-family:'Playfair Display',Georgia,serif;white-space:pre-wrap;font-size:clamp(17px,3vw,21px);line-height:1.8;color:#3f3748;margin:17px 0 0}.detail-nav{display:flex;justify-content:space-between;gap:12px;margin:19px 2px}.nav-day{border:0;background:transparent;color:var(--plum);font-weight:600;font-size:12px;cursor:pointer;padding:8px 0}.nav-day:disabled{opacity:.3;cursor:default}.footer{text-align:center;font:italic 13px 'Playfair Display',Georgia,serif;color:#777582;margin-top:28px}
+    @media(min-width:700px){.grid{grid-template-columns:repeat(8,1fr);gap:14px}.door{aspect-ratio:1}.shell{padding-top:43px}}@media(max-width:520px){.shell{width:min(100% - 22px,1020px);padding-top:21px}.masthead{margin-bottom:31px}.calendar-card{border-radius:19px}.grid{gap:7px}.door{border-radius:10px}.door-mark{right:6px;top:4px;font-size:9px}.player{grid-template-columns:94px 1fr;gap:14px;padding:13px;border-radius:16px}.cover{width:94px;border-radius:10px}.cover-art{font-size:39px}.track-title{font-size:16px}.track-artist{font-size:12px}.embed-wrap{grid-column:1/-1;max-width:none}.detail-head{margin-top:11px}.detail-nav{margin-top:13px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    .player{display:block;background:#fff;padding:clamp(18px,4vw,30px)}
+    .track-title{font-size:clamp(20px,3vw,25px);margin:0 0 5px}
+    .track-artist{font-size:14px}
+    .spotify-row{margin:10px 0 14px}
+    .embed-wrap{width:100%;max-width:none;margin:0}
+    .embed-wrap iframe{width:100%;height:152px;border:0;border-radius:12px;display:block}
+    .wave{height:100px;width:100%;display:flex;align-items:center;justify-content:center;gap:clamp(2px,.55vw,6px);padding:10px 15px;margin-top:15px;border:1px solid transparent;border-radius:14px;background:transparent;overflow:hidden}
+    .wave span{flex:1;max-width:6px;height:var(--base);border-radius:8px;background:linear-gradient(180deg,#c4b5fd,#7A35FF 60%,#5d20d5);opacity:.9;box-shadow:0 0 8px #7A35FF55;animation:waveform 760ms ease-in-out var(--delay) infinite alternate}
+    @keyframes waveform{to{height:var(--peak);filter:brightness(1.25);box-shadow:0 0 13px #c4b5fd}}
+    .autoplay-note{font-size:11px;line-height:1.5;color:var(--muted);margin:10px 2px 0}
+    @media(prefers-reduced-motion:reduce){.wave span{animation:none;height:var(--base)}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead"><div class="brand">en attendant noël</div><div class="tiny-heart" aria-hidden="true">♡</div></header>
+    <section class="calendar-view" id="calendarView">
+      <div class="intro"><div class="eyebrow">du 1 au 24 décembre · édition spéciale</div><h1>24 surprises<br>pour <span class="name" id="partnerNameHeading">ma lisa</span></h1><p>Un calendrier plein de chansons et de petites surprises. Ouvre une case et découvre ce qui s'y cache. ♡</p><div class="progress-wrap"><span id="progressCount">0 / 24 découvertes</span><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div><span>♡</span></div></div>
+      <div class="calendar-card"><div class="calendar-top"><h2>Calendary!</h2><span>24 surprises</span></div><div class="grid" id="doorGrid" aria-label="Calendrier de l'Avent"></div><div class="calendar-bottom"><b></b></div></div>
+    </section>
+    <section class="detail" id="detailView" aria-live="polite">
+      <button class="back-btn" id="backButton"><span>←</span>Retour au calendrier</button>
+      <div class="detail-head"><div class="day-pill" id="dayPill">Jour 01 · décembre</div><h1 class="detail-title" id="detailTitle">Une petite surprise</h1><p class="detail-subtitle" id="detailSubtitle">J'ai pensé à toi en choisissant cette chanson.</p></div>
+      <article class="player" aria-label="Lecteur de musique"><div class="track-title" id="trackTitle">Titre de la musique</div><div class="track-artist" id="trackArtist">Nom de l'artiste</div><div class="spotify-row"><span class="spotify-dot">●</span> Spotify</div><div class="embed-wrap" id="embedWrap"></div><div class="wave" id="wave" role="img" aria-label="Onde sonore animée pendant la lecture"></div><p class="autoplay-note"></p><a class="spotify-link" id="spotifyLink" target="_blank" rel="noopener noreferrer" hidden>Ouvrir dans Spotify ↗</a></article>
+      <article class="card-note"><div class="note-label">ta carte du jour ✦</div><p class="note-text" id="noteText"></p></article>
+      <nav class="detail-nav" aria-label="Naviguer entre les jours"><button class="nav-day" id="prevDay">← Jour précédent</button><button class="nav-day" id="nextDay">Jour suivant →</button></nav>
+      <div class="footer"></div>
+    </section>
+  </main>
+  <script>
+    /* PERSONNALISATION : remplace les exemples ci-dessous par vos prénoms et surprises.
+       Chaque objet = une case. Tu peux en garder 24 ou en ajouter/en enlever. */
+    const PARTENAIRE = "ma lisa";
+    const SURPRISES = [
+      { title:"Photo à deux", song:"Babydoll", artist:"Dominic Fike", spotify:"https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc", card:"Bon pour une photo ! Dis-moi comment je suis et ce que je fais !", emoji:"📸" },
+      { title:"Petit mot", song:"Creep", artist:"Radiohead", spotify:"https://open.spotify.com/track/6qn3MegeUEUaAN3vbscOqI", card:"Petit mot !! « On ne voit bien qu’avec le cœur. L’essentiel est invisible pour les yeux. » — Saint-Exupéry", emoji:"💌" },
+      { title:"Petit mot", song:"Space Song", artist:"Beach House", spotify:"https://open.spotify.com/track/1ZgMsA55GIY7ICkQh5MILA", card:"Petit mot !! « L’amour est comme le vent, on ne peut pas le voir mais on peut le sentir. » — Nicholas Sparks", emoji:"🌙" },
+      { title:"Netflix & chill", song:"Kiss Me", artist:"Sixpence None The Richer", spotify:"https://open.spotify.com/track/754kgU5rWscRTfvlsuEwFp", card:"Bon pour une après-midi Netflix and chill ! Tu choisis le film.", emoji:"🍿" },
+      { title:"Gage sportif", song:"505", artist:"Arctic Monkeys", spotify:"https://open.spotify.com/track/58ge6dfP91o9oXMzq3XkIS", card:"GAGE !!! Fais 20 pompes ! (Preuve vidéo.)", emoji:"💪" },
+      { title:"Photo coquine", song:"For the First Time", artist:"Mac DeMarco", spotify:"https://open.spotify.com/track/4LB5cNN7f18wIJA2RU4iIO", card:"Bon pour une photo coquine !", emoji:"📷" },
+      { title:"Petit mot", song:"Lovers Rock", artist:"TV Girl", spotify:"https://open.spotify.com/track/6dBUzqjtbnIa1TwYbyw5CM", card:"Petit mot !! « Je t’aime plus qu’hier et bien moins que demain. » — Rosemonde Gérard", emoji:"🌹" },
+      { title:"Après-midi créative", song:"Television / So Far So Good", artist:"Rex Orange County", spotify:"https://open.spotify.com/track/5OUTFH5acycdnf8OVo21Gv", card:"Bon pour une après-midi de body painting !", emoji:"🎨" },
+      { title:"Petit mot", song:"Seventh Heaven", artist:"INOHA", spotify:"https://open.spotify.com/track/2OyXbi1urw1MqVXjnxTm4K", card:"Petit mot !! « La mesure de l’amour, c’est d’aimer sans mesure. » — Saint Augustin", emoji:"✨" },
+      { title:"Souvenir photo", song:"I Thought I Saw Your Face Today", artist:"She & Him", spotify:"https://open.spotify.com/track/0myRViRgmQ3J8izICXEAVO", card:"Bon pour une sortie photomaton !", emoji:"🎞️" },
+      { title:"Gage de snaps", song:"Freaks", artist:"Surf Curse", spotify:"https://open.spotify.com/track/7EkWXAI1wn8Ii883ecd9xr", card:"GAGE !!! Fais-moi un show avec plein de snaps !! Tu as le choix du contenu tant qu’on te voit.", emoji:"📱" },
+      { title:"Show de pompier", song:"Boulevard of Broken Dreams", artist:"Green Day", spotify:"https://open.spotify.com/track/1hwJKpe0BPUsq6UUrwBWTw", card:"Bon pour un show en tenue de pompier !", emoji:"🚒" },
+      { title:"Petit mot", song:"Where’d All the Time Go?", artist:"Dr. Dog", spotify:"https://open.spotify.com/track/0UV5zxRMz6AO4ZwUOZNIKI", card:"Petit mot !! « Aimons toujours ! Aimons encore ! Quand l’amour s’en va, l’espoir fuit. » — Victor Hugo", emoji:"⏳" },
+      { title:"Show privé", song:"Push Off", artist:"The Palms", spotify:"https://open.spotify.com/track/3869c1bl5bJqdD3cyDw8hh", card:"Bon pour un show de tous mes Freegun !", emoji:"🩳" },
+      { title:"Petit mot", song:"Sex, Drugs, Etc.", artist:"Beach Weather", spotify:"https://open.spotify.com/track/7DbdUf8aHSYoliSjO6LZv6", card:"Petit mot !! « Aimer, c’est brûler sans se consumer. » — Jean Cocteau", emoji:"🔥" },
+      { title:"À toi de choisir", song:"Hotel Room", artist:"Ax and the Hatchetmen", spotify:"https://open.spotify.com/track/5p5bK3qF9ttryVxpxJvZYF", card:"30 min sous ton contrôle : fais ce que tu veux de moi ! (Tu peux me bander les yeux.)", emoji:"🙈" },
+      { title:"Petit mot", song:"I Wanna Be Yours", artist:"Arctic Monkeys", spotify:"https://open.spotify.com/track/5XeFesFbtLpXzIVDNQP22n", card:"Petit mot !! « Aimer, c’est être bête ensemble. » — Paul Valéry", emoji:"💜" },
+      { title:"Défi en duo", song:"Roommates", artist:"Malcolm Todd", spotify:"https://open.spotify.com/track/08smZJCMrfuOQpRTaRmtF2", card:"GAGE !!! Ce soir, on va courir ensemble !! Si tu n’es pas motivé, j’arriverai à te motiver.", emoji:"🏃" },
+      { title:"Bisou surprise", song:"Sweet Boy", artist:"Malcolm Todd", spotify:"https://open.spotify.com/track/59c2xv2kMzYM6HR9oY6BIa", card:"Bon pour un suçon !", emoji:"💋" },
+      { title:"Petit mot", song:"Chest Pain (I Love)", artist:"Malcolm Todd", spotify:"https://open.spotify.com/track/2XUx8PCXGpP1XhZJMGiUol", card:"Petit mot !! « Je suis perdu, vois-tu, je suis noyé, inondé d’amour ; je ne sais plus si je vis, si je mange, si je respire, si je parle ; je sais que je t’aime. » — Alfred de Musset", emoji:"🫶" },
+      { title:"Gage photo", song:"(I Just) Died in Your Arms", artist:"Cutting Crew", spotify:"https://open.spotify.com/track/4NTPo7o9N0PDhWyH1PQaip", card:"GAGE !!! Attention, photos coquines en approche ! Envoie la photo la plus coquine que tu peux !", emoji:"📩" },
+      { title:"Sondage spécial", song:"Self Aware", artist:"Temper City", spotify:"https://open.spotify.com/track/4qW3BbQAwZsrnu8a3ZRdyT", card:"GAGE !!! Fais-moi un sondage de 30 questions minimum !", emoji:"📝" },
+      { title:"Petit mot", song:"I Saw Your Face", artist:"Malcolm Todd", spotify:"https://open.spotify.com/track/3cLBx0lEWPKSM99hx5RVcx", card:"Petit mot !! « Aimer, ce n’est pas se regarder l’un l’autre, c’est regarder dans la même direction. » — Antoine de Saint-Exupéry", emoji:"🤍" },
+      { title:"Sortie surprise", song:"Earrings", artist:"Malcolm Todd", spotify:"https://open.spotify.com/track/0eAuGrXyGFYwur9ARUe7LJ", card:"BON POUR UNE SORTIE SURPRISE !!!", emoji:"🎁" }
+    ];
+
+    const $ = (s) => document.querySelector(s);
+    const state = { day: null, opened: new Set(JSON.parse(localStorage.getItem('calendrier-ouvert') || '[]')) };
+    let spotifyIframeAPI = null;
+    let spotifyController = null;
+    let pendingSpotifyGift = null;
+    window.onSpotifyIframeApiReady = (api) => { spotifyIframeAPI=api; if(pendingSpotifyGift) mountSpotifyPlayer(pendingSpotifyGift); };
+    $('#partnerNameHeading').textContent = PARTENAIRE;
+    const grid = $('#doorGrid');
+    function renderCalendar(){
+      grid.innerHTML = '';
+      SURPRISES.forEach((gift,index)=>{
+        const day=index+1, button=document.createElement('button');
+        button.className='door'+(state.opened.has(day)?' opened':''); button.type='button';
+        button.setAttribute('aria-label',`Ouvrir la surprise du ${day} décembre`);
+        button.innerHTML=`<span class="door-num">${String(day).padStart(2,'0')}</span><span class="door-mark" aria-hidden="true">${state.opened.has(day)?'✦':'✧'}</span>`;
+        button.addEventListener('click',()=>showGift(day)); grid.appendChild(button);
+      });
+      const count=state.opened.size; $('#progressCount').textContent=`${count} / ${SURPRISES.length} découvertes`;
+      $('#progressFill').style.width=`${SURPRISES.length?count/SURPRISES.length*100:0}%`;
+    }
+    function mountSpotifyPlayer(gift){
+      pendingSpotifyGift=gift;
+      if(!spotifyIframeAPI) return;
+      pendingSpotifyGift=null;
+      if(spotifyController){spotifyController.destroy();spotifyController=null;}
+      $('#embedWrap').innerHTML=''; $('#wave').classList.remove('is-playing');
+      spotifyIframeAPI.createController($('#embedWrap'),{width:'100%',height:'152',url:gift.spotify},(controller)=>{
+        spotifyController=controller;
+        controller.addListener('ready',()=>controller.play());
+        controller.addListener('playback_update',(event)=>$('#wave').classList.toggle('is-playing',!event.data.isPaused));
+      });
+    }
+    function showGift(day){
+      const gift=SURPRISES[day-1]; if(!gift)return; state.day=day;
+      $('#calendarView').classList.add('hidden'); $('#detailView').classList.add('active');
+      $('#dayPill').hidden=false;
+      $('#dayPill').textContent=`Jour ${String(day).padStart(2,'0')} · décembre`;
+      $('#detailTitle').textContent=`${day} décembre`;
+      $('#detailSubtitle').hidden=true;
+      $('#trackTitle').textContent=gift.song||'Une chanson pour toi'; $('#trackArtist').textContent=gift.artist||'À compléter';
+      $('#noteText').textContent=gift.card||'Écris ici le petit mot de cette journée. ♡';
+      mountSpotifyPlayer(gift);
+      const link=$('#spotifyLink'); link.href=gift.spotify||`https://open.spotify.com/search/${encodeURIComponent(`${gift.song} ${gift.artist}`)}`; link.hidden=false;
+      $('#prevDay').disabled=day<=1; $('#nextDay').disabled=day>=SURPRISES.length;
+      if(!state.opened.has(day)){state.opened.add(day);localStorage.setItem('calendrier-ouvert',JSON.stringify([...state.opened]));renderCalendar()}
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function showCalendar(){ $('#detailView').classList.remove('active'); $('#calendarView').classList.remove('hidden'); state.day=null; window.scrollTo({top:0,behavior:'smooth'}); }
+    $('#backButton').addEventListener('click',showCalendar);
+    $('#prevDay').addEventListener('click',()=>state.day>1&&showGift(state.day-1));
+    $('#nextDay').addEventListener('click',()=>state.day<SURPRISES.length&&showGift(state.day+1));
+    window.addEventListener('keydown',event=>{if(event.key==='Escape'&&state.day)showCalendar()});
+    const wave=$('#wave');
+    wave.innerHTML=Array.from({length:48},(_,i)=>{const base=10+Math.round(Math.abs(Math.sin(i*1.73))*25);const peak=28+Math.round(Math.abs(Math.sin(i*.83+1))*55);return `<span style="--base:${base}px;--peak:${peak}px;--delay:-${(i%11)*.09}s"></span>`}).join('');
+    renderCalendar();
+  </script>
+  <script async src="https://open.spotify.com/embed/iframe-api/v1"></script>
+</body>
+</html>
